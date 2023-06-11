@@ -57,6 +57,20 @@ class Gameplay extends Phaser.Scene {
     create() {
         this.cameras.main.setBackgroundColor(0x034356)
         this.cameras.main.fadeIn(1000);
+
+        this.score = 0
+        this.scorecount = this.add.text(800, 100, 'Score: ' + this.score).setFontSize(20)
+        this.scorecount.setScrollFactor(0)
+
+        let increase = this.add.text(250, 200, 'Click here to increase score')
+            .setFontSize(25)
+            .setOrigin(0.5)
+            .setInteractive({useHandCursor: true})
+            .on('pointerdown', () => {
+                this.score += 1
+                this.scorecount.setText('Score : ' + this.score)
+            })
+
         this.add.text(400, 100, 'This is the living room scene')
             .setFontSize(30)
             .setOrigin(0.5)
@@ -73,7 +87,7 @@ class Gameplay extends Phaser.Scene {
                     delay: 2000,
                     loop: false,
                     callback: () => {
-                        this.scene.start('master')
+                        this.scene.start('master', {score: this.score})
                     }
                 })
             })
@@ -83,6 +97,10 @@ class Gameplay extends Phaser.Scene {
 class Master extends Phaser.Scene {
     constructor() {
         super('master')
+    }
+
+    init(data) {
+        this.score = data.score
     }
 
     create() {
@@ -112,6 +130,9 @@ class Master extends Phaser.Scene {
                     }
                 })
             })
+
+        let lastscene = this.add.text(100, 600, 'In the last scene your total score was: ' + this.score)
+            .setFontSize(20)
     }
 }
 
