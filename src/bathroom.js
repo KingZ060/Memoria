@@ -61,6 +61,55 @@ class BathRoom extends GameScene {
     }
 
     onEnter() {
+        
+        this.roomOn = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BathRoomOn').setScale(0.9).setImmovable(true);
+        this.roomOff = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BathRoomOff')
+        .setScale(0.9)
+        .setVisible(false)
+        .setImmovable(true);
+        
+        this.bath = this.add.rectangle(this.roomOn.x, this.roomOn.y+250, 700, 30, 0xFFFFFF, 0.5)
+        this.physics.add.existing(this.bath)
+        this.bath.setVisible(false)
+        
+        
+        this.bathMsg = "An old looking bathtub. It looks like it hasn't been used in ages."
+        this.bathinter = this.add.text(this.roomOn.x+80, this.roomOn.y+370, '                \n                \n                \n                ')
+        .setFontSize(50)
+        .setOrigin(0.5)
+        .setInteractive({useHandCursor: true})
+        .on('pointerover', () => this.showMessage("A bathtub"))
+        
+        this.screenTint = this.add.rectangle(0, 0, this.w-500, this.h, 0x000000, 0.5)
+        .setOrigin(0, 0)
+        .setVisible(false)
+        
+        // adding move around mom
+        this.momGroup = this.physics.add.group();
+        let path1 = [
+            { x: 450, y: 500 },
+            { x: 700, y: 500 },
+        ];
+        this.mother1 = new Mom(this, 450, 500, path1);
+        this.mother1.setScale(0.15);
+        this.mother1.setVisible(false);
+        this.mother1.body.checkCollision.none=true;
+        this.mother1.speed=0;
+        
+        let path2 = [
+            { x: 600, y: 700 },
+            { x: 1000, y: 700 },
+            { x: 1000, y: 400 },
+        ];
+        this.mother2 = new Mom(this, 600, 700, path2);
+        this.mother2.setScale(0.15);
+        this.mother2.setVisible(false);
+        this.mother2.body.checkCollision.none=true;
+        this.mother2.speed=0;
+        
+        this.momGroup.add(this.mother1);
+        this.momGroup.add(this.mother2);
+        
         this.subrect = this.add.rectangle(game.config.width/2, 900, 200, 20, 0x000000, 0.5).setVisible(false)
         this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
             .setFontSize(20)
@@ -75,105 +124,57 @@ class BathRoom extends GameScene {
         this.subrect.setVisible(true)
         this.subtext.setText('(Eerie ambience)')
         this.subtext.setVisible(true)
-
-        this.roomOn = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BathRoomOn').setScale(0.9).setImmovable(true);
-        this.roomOff = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BathRoomOff')
-            .setScale(0.9)
-            .setVisible(false)
-            .setImmovable(true);
-
-        this.bath = this.add.rectangle(this.roomOn.x, this.roomOn.y+250, 700, 30, 0xFFFFFF, 0.5)
-        this.physics.add.existing(this.bath)
-        this.bath.setVisible(false)
-
-
-        this.bathMsg = "An old looking bathtub. It looks like it hasn't been used in ages."
-        this.bathinter = this.add.text(this.roomOn.x+80, this.roomOn.y+370, '                \n                \n                \n                ')
-            .setFontSize(50)
-            .setOrigin(0.5)
-            .setInteractive({useHandCursor: true})
-            .on('pointerover', () => this.showMessage("A bathtub"))
-
-        this.screenTint = this.add.rectangle(0, 0, this.w-500, this.h, 0x000000, 0.5)
-            .setOrigin(0, 0)
-            .setVisible(false)
-
-        // adding move around mom
-        this.momGroup = this.physics.add.group();
-        let path1 = [
-            { x: 450, y: 500 },
-            { x: 700, y: 500 },
-        ];
-        this.mother1 = new Mom(this, 450, 500, path1);
-        this.mother1.setScale(0.15);
-        this.mother1.setVisible(false);
-        this.mother1.body.checkCollision.none=true;
-        this.mother1.speed=0;
-
-        let path2 = [
-            { x: 600, y: 700 },
-            { x: 1000, y: 700 },
-            { x: 1000, y: 400 },
-        ];
-        this.mother2 = new Mom(this, 600, 700, path2);
-        this.mother2.setScale(0.15);
-        this.mother2.setVisible(false);
-        this.mother2.body.checkCollision.none=true;
-        this.mother2.speed=0;
-
-        this.momGroup.add(this.mother1);
-        this.momGroup.add(this.mother2);
-
+        
         // light switch
         this.lightOn = this.add.image(this.w-4*this.s, this.h-6*this.s, 'lighton')
-            .setScale(0.1)
+        .setScale(0.1)
         this.lightOff = this.add.image(this.w-2*this.s, this.h-6*this.s, 'lightoff')
-            .setScale(0.1)
-
+        .setScale(0.1)
+        
         this.switchOn = this.sound.add('switchon').setVolume(0.25)
         this.switchOff = this.sound.add('switchoff').setVolume(0.25)
-
+        
         if(this.screenTint.setVisible(false)) {
             this.lightOff.setVisible(false)
         }
         else {
             this.lightOn.setVisible(false)
         }
-
+        
         this.light = 1
-
+        
         // light switch interactivity
         this.lightSwitchinter = this.add.text(this.w-3*this.s, this.h-8*this.s, '  \n  ')
-            .setFontSize(`${(2 * this.s) - 10}px`)
-            .setInteractive({useHandCursor: true})
-            .on('pointerover', () => this.showMessage('Toggle light switch?'))
-            .on('pointerdown', () => {
-                if (this.light == 1) {
-                    this.switchOff.play()
-                    this.subtext.setText("(Light switch flip)")
-                    this.time.addEvent({
-                            delay: 1000,
-                            loop: false,
-                            callback: () => {
-                                this.subtext.setText("(Eerie ambience)");
-                            }
-                        });
-                    this.lightOn.setVisible(false)
-                    this.lightOff.setVisible(true)
-                    this.light = 0
-                    this.screenTint.setVisible(true)
-                    this.roomOn.setVisible(false)
-                    this.roomOff.setVisible(true)
-                    this.roomOn.body.enable = false;
-                    this.roomOff.body.enable = true;
-                    this.bathMsg = "A bathtub filled with water and blood."
-                    this.momGroup.children.iterate(function(mom) {
-                        mom.setVisible(true);
-                        mom.body.checkCollision.none=false;
-                        mom.speed=(this.inventory.length)*100;
-                    }, this);
-                } else {
-                    this.switchOn.play()
+        .setFontSize(`${(2 * this.s) - 10}px`)
+        .setInteractive({useHandCursor: true})
+        .on('pointerover', () => this.showMessage('Toggle light switch?'))
+        .on('pointerdown', () => {
+            if (this.light == 1) {
+                this.switchOff.play()
+                this.subtext.setText("(Light switch flip)")
+                this.time.addEvent({
+                    delay: 1000,
+                    loop: false,
+                    callback: () => {
+                        this.subtext.setText("(Eerie ambience)");
+                    }
+                });
+                this.lightOn.setVisible(false)
+                this.lightOff.setVisible(true)
+                this.light = 0
+                this.screenTint.setVisible(true)
+                this.roomOn.setVisible(false)
+                this.roomOff.setVisible(true)
+                this.roomOn.body.enable = false;
+                this.roomOff.body.enable = true;
+                this.bathMsg = "A bathtub filled with water and blood."
+                this.momGroup.children.iterate(function(mom) {
+                    mom.setVisible(true);
+                    mom.body.checkCollision.none=false;
+                    mom.speed=(this.inventory.length)*100;
+                }, this);
+            } else {
+                this.switchOn.play()
                     this.subtext.setText("(Light switch flip)")
                     this.time.addEvent({
                             delay: 1000,

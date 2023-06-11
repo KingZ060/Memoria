@@ -58,6 +58,19 @@ class Master extends GameScene {
     }
 
     onEnter() {
+        
+        this.room = this.add.image(game.config.width/2-200, game.config.height/2, 'masterbedroombg').setScale(0.5)
+        this.doorimg = this.add.image(game.config.width/2-200, game.config.height/2, 'bedroomdoor').setScale(0.5)
+        this.closetimg = this.add.image(game.config.width/2-200, game.config.height/2, 'closet').setScale(0.5)
+        this.nightstandimg = this.add.image(game.config.width/2-200, game.config.height/2, 'nightstand').setScale(0.5)
+        this.vanityimg = this.add.image(game.config.width/2-200, game.config.height/2, 'vanity').setScale(0.5)
+        this.boximg = this.add.image(game.config.width/2-200, game.config.height/2, 'jewerlybox').setScale(0.5).setVisible(false)
+        this.bed = this.add.image(game.config.width/2-200, game.config.height/2, 'bed').setScale(0.5)
+        
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.player = new Player(this, 300, 750);
+        this.input.on('pointerdown', this.player.movePlayer, this.player);
+        
         this.subrect = this.add.rectangle(game.config.width/2, 900, 200, 20, 0x000000, 0.5).setVisible(false)
         this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
             .setFontSize(20)
@@ -72,33 +85,21 @@ class Master extends GameScene {
         this.subrect.setVisible(true)
         this.subtext.setText('(Eerie ambience)')
         this.subtext.setVisible(true)
-
-        this.room = this.add.image(game.config.width/2-200, game.config.height/2, 'masterbedroombg').setScale(0.5)
-        this.doorimg = this.add.image(game.config.width/2-200, game.config.height/2, 'bedroomdoor').setScale(0.5)
-        this.closetimg = this.add.image(game.config.width/2-200, game.config.height/2, 'closet').setScale(0.5)
-        this.nightstandimg = this.add.image(game.config.width/2-200, game.config.height/2, 'nightstand').setScale(0.5)
-        this.vanityimg = this.add.image(game.config.width/2-200, game.config.height/2, 'vanity').setScale(0.5)
-        this.boximg = this.add.image(game.config.width/2-200, game.config.height/2, 'jewerlybox').setScale(0.5).setVisible(false)
-        this.bed = this.add.image(game.config.width/2-200, game.config.height/2, 'bed').setScale(0.5)
-
-        this.cursors = this.input.keyboard.createCursorKeys();
-        this.player = new Player(this, 300, 750);
-        this.input.on('pointerdown', this.player.movePlayer, this.player);
-
+        
         this.door = this.add.rectangle(260, 750, 10, 100, 0xFFFFFF, 0.5)
         this.physics.add.existing(this.door)
         this.door.setVisible(false)
-
+        
         this.doorinter = this.add.text(240, 750, ' \n \n ')
-            .setFontSize(30)
-            .setOrigin(0.5)
-            .setInteractive({useHandCursor:true})
-            .on('pointerover', () => this.showMessage('Livingroom door'))
-
+        .setFontSize(30)
+        .setOrigin(0.5)
+        .setInteractive({useHandCursor:true})
+        .on('pointerover', () => this.showMessage('Livingroom door'))
+        
         this.closet = this.add.rectangle(1200, 550, 100, 200, 0xFFFFFF, 0.5)
         this.physics.add.existing(this.closet)
         this.closet.setVisible(false)
-
+        
         this.closetinter = this.add.text(1200, 550, '    \n    \n    \n    ')
             .setFontSize(45)
             .setOrigin(0.5)
