@@ -39,16 +39,19 @@ class LivingRoom extends GameScene {
         }
         if (object == this.master) {
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.bgm.stop()
             this.gotoScene('master')
         }
         if (object == this.bathroom) {
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.bgm.stop()
             this.gotoScene('bathroom')
         }
         if (object == this.babyroom) {
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.bgm.stop()
             this.gotoScene('babyroom')
         }
@@ -75,6 +78,13 @@ class LivingRoom extends GameScene {
         this.bedroomDoor = this.add.image(game.config.width/6.1, game.config.height/1.84, 'doorVert').setScale(0.5)
         this.bathroomDoor = this.add.image(game.config.width/7.05, game.config.height/1.85, 'doorHori').setScale(0.5)
         this.babyDoor = this.add.image(game.config.width/6.1, game.config.height/1.42, 'doorHori').setScale(0.5)
+
+        // subtitles
+        this.subrect = this.add.rectangle(game.config.width/2, 900, 200, 20, 0x000000, 0.5).setVisible(false)
+        this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
+            .setFontSize(20)
+            .setOrigin(0.5)
+            .setVisible(false)
 
         // adding player
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -118,6 +128,9 @@ class LivingRoom extends GameScene {
         this.bgm = this.sound.add('bgm').setVolume(0.25)
         this.bgm.loop = true
         this.bgm.play()
+        this.subrect.setVisible(true)
+        this.subtext.setText('(Eerie ambience)')
+        this.subtext.setVisible(true)
 
         // picture frame object
         this.frameMsg = 'A worn family picture. You and your family seem so happy.'
@@ -260,6 +273,14 @@ class LivingRoom extends GameScene {
                 if (this.light == 1) {
                     this.light = 0
                     this.switchOff.play()
+                    this.subtext.setText("(Light switch flip)")
+                    this.time.addEvent({
+                            delay: 1000,
+                            loop: false,
+                            callback: () => {
+                                this.subtext.setText("(Eerie ambience)");
+                            }
+                        });
                     this.lightOn.setVisible(false)
                     this.lightOff.setVisible(true)
                     this.screenTint.setVisible(true)
@@ -278,6 +299,14 @@ class LivingRoom extends GameScene {
                 } else {
                     this.light = 1
                     this.switchOn.play()
+                    this.subtext.setText("(Light switch flip)")
+                    this.time.addEvent({
+                        delay: 1000,
+                        loop: false,
+                        callback: () => {
+                            this.subtext.setText("(Eerie ambience)");
+                        }
+                    });
                     this.lightOff.setVisible(false)
                     this.lightOn.setVisible(true)
                     this.screenTint.setVisible(false)

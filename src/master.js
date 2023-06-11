@@ -28,6 +28,7 @@ class Master extends GameScene {
     interact(player, object) {
         if (object == this.door) {
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.bgm.stop()
             this.cry.stop()
             this.gotoLivingScene('livingroom', {x:1200, y:505})
@@ -51,16 +52,26 @@ class Master extends GameScene {
             this.bgm.stop()
             this.cry.stop()
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.gotoScene('outro')
         }
     }
 
     onEnter() {
+        this.subrect = this.add.rectangle(game.config.width/2, 900, 200, 20, 0x000000, 0.5).setVisible(false)
+        this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
+            .setFontSize(20)
+            .setOrigin(0.5)
+            .setVisible(false)
+
         this.creak = this.sound.add('creak').setVolume(0.25)
         this.cry = this.sound.add('momcry').setVolume(0.25)
         this.bgm = this.sound.add('bgm').setVolume(0.25)
         this.bgm.loop = true
         this.bgm.play()
+        this.subrect.setVisible(true)
+        this.subtext.setText('(Eerie ambience)')
+        this.subtext.setVisible(true)
 
         this.room = this.add.image(game.config.width/2-200, game.config.height/2, 'masterbedroombg').setScale(0.5)
         this.doorimg = this.add.image(game.config.width/2-200, game.config.height/2, 'bedroomdoor').setScale(0.5)
@@ -158,6 +169,14 @@ class Master extends GameScene {
             .on('pointerdown', () => {
                 if (this.light == 1) {
                     this.switchOff.play()
+                    this.subtext.setText("(Light switch flip)")
+                    this.time.addEvent({
+                            delay: 1000,
+                            loop: false,
+                            callback: () => {
+                                this.subtext.setText("(Mother crying)");
+                            }
+                        });
                     this.lightOn.setVisible(false)
                     this.lightOff.setVisible(true)
                     this.light = 0
@@ -166,6 +185,14 @@ class Master extends GameScene {
                     this.cry.play()
                 } else {
                     this.switchOn.play()
+                    this.subtext.setText("(Light switch flip)")
+                    this.time.addEvent({
+                            delay: 1000,
+                            loop: false,
+                            callback: () => {
+                                this.subtext.setText("(Eerie ambience)");
+                            }
+                        });
                     this.lightOn.setVisible(true)
                     this.lightOff.setVisible(false)
                     this.light = 1

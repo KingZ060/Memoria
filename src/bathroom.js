@@ -25,6 +25,7 @@ class BathRoom extends GameScene {
     interact(player, object) {
         if (object == this.livingroom) {
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.bgm.stop()
             this.babycry.stop()
             this.gotoLivingScene('livingroom', {x:350, y:515})
@@ -33,6 +34,7 @@ class BathRoom extends GameScene {
             this.showMessage(this.bathMsg)
             if (this.light == 0) {
                 this.babycry.play()
+                this.subtext.setText('(Baby crying)')
                 this.gainItem('Baby Crying Clue')
                 this.momGroup.children.iterate(function(mom) {
                     mom.speed=(this.inventory.length)*100;
@@ -53,16 +55,26 @@ class BathRoom extends GameScene {
             this.bgm.stop()
             this.babycry.stop()
             this.creak.play()
+            this.subtext.setText('(Door creaks open)')
             this.gotoScene('outro')
         }
     }
 
     onEnter() {
+        this.subrect = this.add.rectangle(game.config.width/2, 900, 200, 20, 0x000000, 0.5).setVisible(false)
+        this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
+            .setFontSize(20)
+            .setOrigin(0.5)
+            .setVisible(false)
+
         this.creak = this.sound.add('creak').setVolume(0.25)
         this.babycry = this.sound.add('babycry').setVolume(0.25)
         this.bgm = this.sound.add('bgm').setVolume(0.25)
         this.bgm.loop = true
         this.bgm.play()
+        this.subrect.setVisible(true)
+        this.subtext.setText('(Eerie ambience)')
+        this.subtext.setVisible(true)
 
         this.roomOn = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BathRoomOn').setScale(0.9).setImmovable(true);
         this.roomOff = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BathRoomOff')
@@ -73,6 +85,7 @@ class BathRoom extends GameScene {
         this.bath = this.add.rectangle(this.roomOn.x, this.roomOn.y+250, 700, 30, 0xFFFFFF, 0.5)
         this.physics.add.existing(this.bath)
         this.bath.setVisible(false)
+
 
         this.bathMsg = "An old looking bathtub. It looks like it hasn't been used in ages."
         this.bathinter = this.add.text(this.roomOn.x+80, this.roomOn.y+370, '                \n                \n                \n                ')
@@ -137,6 +150,14 @@ class BathRoom extends GameScene {
             .on('pointerdown', () => {
                 if (this.light == 1) {
                     this.switchOff.play()
+                    this.subtext.setText("(Light switch flip)")
+                    this.time.addEvent({
+                            delay: 1000,
+                            loop: false,
+                            callback: () => {
+                                this.subtext.setText("(Eerie ambience)");
+                            }
+                        });
                     this.lightOn.setVisible(false)
                     this.lightOff.setVisible(true)
                     this.light = 0
@@ -153,6 +174,14 @@ class BathRoom extends GameScene {
                     }, this);
                 } else {
                     this.switchOn.play()
+                    this.subtext.setText("(Light switch flip)")
+                    this.time.addEvent({
+                            delay: 1000,
+                            loop: false,
+                            callback: () => {
+                                this.subtext.setText("(Eerie ambience)");
+                            }
+                        });
                     this.lightOff.setVisible(false)
                     this.lightOn.setVisible(true)
                     this.light = 1

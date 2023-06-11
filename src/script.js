@@ -24,6 +24,12 @@ class Title extends Phaser.Scene {
         this.start = this.add.image(game.config.width/2, game.config.height/2.75, 'start')
         .setScale(0.5)
         .setOrigin(0.5)
+
+        this.subrect = this.add.rectangle(game.config.width/2, 900, 130, 20, 0x000000, 0.5).setVisible(false)
+        this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
+            .setFontSize(20)
+            .setOrigin(0.5)
+            .setVisible(false)
         
         this.startinter = this.add.text(game.config.width/2, game.config.height/2.3, '       ')
         .setOrigin(0.5)
@@ -33,6 +39,9 @@ class Title extends Phaser.Scene {
         .on('pointerout', () => this.start.setScale(0.5))
         .on('pointerdown', () => {
             this.page.play()
+            this.subrect.setVisible(true)
+            this.subtext.setText('(Page flip)')
+            this.subtext.setVisible(true)
             this.time.delayedCall(1000, () => this.scene.start('warning'))
         })
         
@@ -48,6 +57,9 @@ class Title extends Phaser.Scene {
         .on('pointerout', () => this.options.setScale(0.5))
         .on('pointerdown', () => {
             this.page.play()
+            this.subrect.setVisible(true)
+            this.subtext.setText('(Page flip)')
+            this.subtext.setVisible(true)
             this.time.delayedCall(100, () => this.scene.start('settings'))
         })
     }
@@ -90,6 +102,12 @@ class Settings extends Phaser.Scene {
             if (game.sound.mute) {
                 this.musicToggle.setText("Toggle sound 🔇")
             }
+
+        this.subrect = this.add.rectangle(game.config.width/2, 900, 130, 20, 0x000000, 0.5).setVisible(false)
+        this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
+            .setFontSize(20)
+            .setOrigin(0.5)
+            .setVisible(false)
             
             this.exit = this.add.image(game.config.width/2, game.config.height/3.5, 'exit')
             .setOrigin(0.5)
@@ -103,6 +121,9 @@ class Settings extends Phaser.Scene {
             .on('pointerout', () => this.exit.setScale(0.5))
             .on('pointerdown', () => {
                 this.page.play()
+                this.subrect.setVisible(true)
+                this.subtext.setText('(Page flip)')
+                this.subtext.setVisible(true)
                 this.time.delayedCall(75, () => this.scene.start('title'))
             })
     }
