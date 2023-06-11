@@ -64,6 +64,21 @@ class BabyRoom extends GameScene {
     }
 
     onEnter() {
+        
+        this.roomOn = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BabyRoomOn').setScale(0.7).setImmovable(true);
+        this.roomOff = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BabyRoomOff')
+        .setScale(0.7)
+        .setVisible(false)
+        .setImmovable(true);
+        
+        this.lightOn = this.add.image(this.w-4*this.s, this.h-6*this.s, 'lighton')
+        .setScale(0.1)
+        this.lightOff = this.add.image(this.w-2*this.s, this.h-6*this.s, 'lightoff')
+        .setScale(0.1)
+        
+        this.switchOn = this.sound.add('switchon').setVolume(0.25)
+        this.switchOff = this.sound.add('switchoff').setVolume(0.25)
+        
         this.subrect = this.add.rectangle(game.config.width/2, 900, 200, 20, 0x000000, 0.5).setVisible(false)
         this.subtext = this.add.text(game.config.width/2, 902, 'Hello')
             .setFontSize(20)
@@ -77,28 +92,14 @@ class BabyRoom extends GameScene {
         this.subrect.setVisible(true)
         this.subtext.setText('(Lullaby plays)')
         this.subtext.setVisible(true)
-
-        this.roomOn = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BabyRoomOn').setScale(0.7).setImmovable(true);
-        this.roomOff = this.physics.add.sprite(game.config.width/2-208, game.config.height/2, 'BabyRoomOff')
-            .setScale(0.7)
-            .setVisible(false)
-            .setImmovable(true);
         
-        this.lightOn = this.add.image(this.w-4*this.s, this.h-6*this.s, 'lighton')
-            .setScale(0.1)
-        this.lightOff = this.add.image(this.w-2*this.s, this.h-6*this.s, 'lightoff')
-            .setScale(0.1)
-
-        this.switchOn = this.sound.add('switchon').setVolume(0.25)
-        this.switchOff = this.sound.add('switchoff').setVolume(0.25)
-
         this.record = this.add.rectangle(game.config.width/2.4, game.config.height/2.1, 200, 280, 0xFFFFFF, 0.5)
         this.physics.add.existing(this.record)
         this.record.setVisible(false)
-
+        
         this.recordinterMsg = "A teddy bear"
         this.recordMsg = "It seems to be a record of your baby brother's favorite lullaby."
-
+        
         this.recordinter = this.add.text(game.config.width/2.4, game.config.height/2.2, '     \n     \n     \n     ')
             .setFontSize(50)
             .setOrigin(0.5)
