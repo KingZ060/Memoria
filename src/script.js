@@ -175,6 +175,10 @@ class Intro extends Phaser.Scene {
     }
 }
 
+class Intro_Cinematic extends Phaser.Scene{
+    
+}
+
 class Outro extends Phaser.Scene {
     constructor() {
         super("outro");
