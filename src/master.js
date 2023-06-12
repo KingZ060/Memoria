@@ -8,8 +8,8 @@ class Master extends GameScene {
         this.load.path = '/Memoria/assets/' // <- for github
         this.load.image('lighton', 'Buttons/Light switch on.png')
         this.load.image('lightoff', 'Buttons/Light switch off.png')
-        this.load.image('delilah', 'Delilah.png')
-        this.load.image('mother', 'Mother.png')
+        // this.load.image('delilah', 'Delilah.png')
+        // this.load.image('mother', 'Mother.png')
         this.load.image('bed', 'Master Bedroom/Bed.png')
         this.load.image('bedroomdoor', 'Master Bedroom/Bedroom Door.png')
         this.load.image('closet', 'Master Bedroom/Closet.png')
@@ -18,9 +18,9 @@ class Master extends GameScene {
         this.load.image('nightstand', 'Master Bedroom/Nightstand.png')
         this.load.image('vanity', 'Master Bedroom/Vanity.png')
         this.load.image('walls', 'Master Bedroom/master-walls.png')
-        this.load.audio('switchon', 'sounds/LIGHT SWITCH ON SOUND.mp3')
-        this.load.audio('switchoff', 'sounds/LIGHT SWITCH OFF SOUND.mp3')
-        this.load.audio('bgm', 'sounds/ambience.wav')
+        // this.load.audio('switchon', 'sounds/LIGHT SWITCH ON SOUND.mp3')
+        // this.load.audio('switchoff', 'sounds/LIGHT SWITCH OFF SOUND.mp3')
+        // this.load.audio('bgm', 'sounds/ambience.wav')
         this.load.audio('momcry', 'sounds/mom crying.mp3')
         this.load.audio('creak', 'sounds/creak.mp3')
     }

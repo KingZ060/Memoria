@@ -140,7 +140,7 @@ class Warning extends Phaser.Scene {
             .setFontSize(50)
             .setOrigin(0.5)
         this.input.on('pointerdown', () => {
-            this.scene.start('intro');
+            this.scene.start('tutorioal');
         });
         // this.time.addEvent({
         //     delay: 10000,
@@ -149,6 +149,44 @@ class Warning extends Phaser.Scene {
         //         this.scene.start('intro');
         //     }
         // });
+    }
+}
+
+class Tutorioal extends GameScene {
+    constructor() {
+        super('tutorioal')
+    }
+    preload() {
+        // this.load.path = '/assets/' // <- for local
+        this.load.path = '/Memoria/assets/' // <- for github
+        this.load.image('player', 'Delilah.png')
+        this.load.image('doorVert', 'Bathroom/Bathroom door.png')
+        this.load.audio('creak', 'sounds/creak.mp3')
+    }
+    onEnter(){
+        this.creak = this.sound.add('creak').setVolume(0.25)
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.player = new Player(this, 300, 500);
+        this.input.on('pointerdown', this.player.movePlayer, this.player);
+        this.door = this.add.image(game.config.width/1.34, game.config.height/1.84, 'doorVert').setScale(0.5)
+        this.touch = this.add.rectangle(game.config.width/1.46, game.config.height/2, 10, 100, 0xFFFFFF, 0.5).setVisible(false)
+        this.subtext = this.add.text(game.config.width/1.475, game.config.height/2.4, 'Click me!!\n    ⬇️')
+            .setFontSize(20)
+            .setOrigin(0.5)
+        this.physics.add.existing(this.touch)
+        this.doorinter = this.add.text(game.config.width/1.465, game.config.height/2, ' \n \n ')
+            .setFontSize(30)
+            .setOrigin(0.5)
+            .setInteractive({useHandCursor: true})
+            .on('pointerover', () => this.showMessage('Click me to go \ninto the game!\n'))
+        this.interact = function(player, door){
+            this.sound.play('creak');
+            this.gotoScene('intro');
+        }
+        this.physics.add.overlap(this.player, this.touch, this.interact, null, this)
+    }
+    update() {
+        this.player.update(this.cursors);
     }
 }
 
@@ -264,6 +302,6 @@ class Outro extends Phaser.Scene {
         // }
     },
     type: Phaser.AUTO,
-    scene: [Title, Settings, Warning, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits],
+    scene: [Title, Settings, Warning, Tutorioal, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits],
     title: "Memoria",
 });
