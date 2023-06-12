@@ -6,7 +6,7 @@ Audio used:\
 ## Visual
 Assets used:\
     Image-based assets-Delilah.png, Bathroom door.png...\
-    Video-myVideo.mp4 From pixabay[https://pixabay.com/videos/earth-globe-rotate-world-global-1236/]
+    Video-myVideo.mp4 From [pixabay](https://pixabay.com/videos/earth-globe-rotate-world-global-1236/)
 ## Motion
 Player.js in lib folder:\
     Based on physics movement(setVelocity)
