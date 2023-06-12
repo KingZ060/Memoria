@@ -9,6 +9,7 @@ class Test1 extends Phaser.Scene {
         // this.load.path = '../../assets/'
         this.load.path = '/Memoria/assets/' // <- for github
         this.load.image('player', 'Delilah.png')
+        this.load.image('mother', 'Mother.png')
         this.load.image('doorVert', 'Bathroom/Bathroom door.png')
         this.load.audio('bgm', 'sounds/ambience.wav')
         this.load.audio('creak', 'sounds/creak.mp3')
@@ -46,26 +47,62 @@ class Test1 extends Phaser.Scene {
     }
 }
 
-class Test2 extends Phaser.Scene {
+class Test2 extends GameScene {
     constructor() {
-        super('Test2')
+        super('Test2', 'Test2')
     }
 
     preload() {
         this.load.video('video', 'myVideo.mp4', 'loadeddata', false, true);
     }
 
-    create() {
-        this.video = this.add.video(400, 300, 'video');
+    onEnter() {
+        let inventory=0;
+        this.cameras.main.setBackgroundColor('#ffffff');
+
+        this.video = this.add.video(400, 400, 'video');
         this.video.play(true);
 
         this.cursors = this.input.keyboard.createCursorKeys();
         this.player = new Player(this, 100, 100);
         this.input.on('pointerdown', this.player.movePlayer, this.player);
+
+        this.momGroup = this.physics.add.group();
+        let path1 = [
+            { x: 900, y: 800 },
+            { x: 1400, y: 800 },
+            { x: 1400, y: 100 },
+        ];
+        this.mother1 = new Mom(this, 900, 800, path1);
+        this.mother1.setScale(0.15);
+        this.mother1.speed=0;
+
+        let speedText = this.add.text(550, 50, 'Speed: 0', { fontSize: '32px', fill: '#000' });
+
+        let plusButton = this.add.text(500, 100, '+', { fontSize: '32px', fill: '#000' }).setInteractive().setScale(1.5);
+        let minusButton = this.add.text(700, 100, '-', { fontSize: '32px', fill: '#000' }).setInteractive().setScale(1.5);
+
+        plusButton.on('pointerover', () => this.showMessage('Increase speed'))
+        minusButton.on('pointerover', () => this.showMessage('Decrease speed'))
+        plusButton.on('pointerdown', () => {
+            inventory++;
+            this.mother1.speed = inventory * 100;
+            speedText.setText('Speed: ' + this.mother1.speed);
+        });
+
+        minusButton.on('pointerdown', () => {
+            if (inventory > 0) {
+                inventory--; 
+            }
+            this.mother1.speed = inventory * 100;
+            speedText.setText('Speed: ' + this.mother1.speed);
+        });
+        
     }
     
     update() {
         this.player.update(this.cursors);
+        this.mother1.update();
     }
 }
 
@@ -74,6 +111,7 @@ const game = new Phaser.Game({
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        
         width: 1900,
         height: 1000
     },
@@ -83,5 +121,4 @@ const game = new Phaser.Game({
     },
     type: Phaser.AUTO,
     scene: [Test1,Test2],
-    title: "Final Project",
 });

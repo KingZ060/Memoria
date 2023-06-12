@@ -14,3 +14,6 @@ Player.js in lib folder:\
 The movement of mother:\
     Progression in our game is a bit different. The condition for our game to win is to get all 4 items. Therefore, we made the movement speed of the enemy (mother sprite) depend on the amount of inventory you get. The more you holding, the faster the enemies move. Shown in Test 2 Scene.
 ## Prefabs
+GameObject subclasses: Player class and Mom class in src folder.
+Scene subclasses: Test1 and Test2. One is the subclass of the normal Phaser Scene and one is the subclass of the gameScene engine\
+
