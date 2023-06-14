@@ -126,10 +126,8 @@ class BathRoom extends GameScene {
         this.subtext.setVisible(true)
         
         // light switch
-        this.lightOn = this.add.image(this.w-4*this.s, this.h-6*this.s, 'lighton')
-        .setScale(0.1)
-        this.lightOff = this.add.image(this.w-2*this.s, this.h-6*this.s, 'lightoff')
-        .setScale(0.1)
+        this.lightOn = this.add.image(this.w-6*this.s, this.h-9*this.s, 'lighton').setScale(0.15)
+        this.lightOff = this.add.image(this.w-4*this.s, this.h-9*this.s, 'lightoff').setScale(0.15)
         
         this.switchOn = this.sound.add('switchon').setVolume(0.25)
         this.switchOff = this.sound.add('switchoff').setVolume(0.25)
@@ -144,8 +142,8 @@ class BathRoom extends GameScene {
         this.light = 1
         
         // light switch interactivity
-        this.lightSwitchinter = this.add.text(this.w-3*this.s, this.h-8*this.s, '  \n  ')
-        .setFontSize(`${(2 * this.s) - 10}px`)
+        this.lightSwitchinter = this.add.text(this.w-5*this.s, this.h-12*this.s, '   \n   \n   ')
+        .setFontSize(`${(2 * this.s) - 12}px`)
         .setInteractive({useHandCursor: true})
         .on('pointerover', () => this.showMessage('Toggle light switch?'))
         .on('pointerdown', () => {
