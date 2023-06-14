@@ -36,6 +36,6 @@ Core gameplay can be reached in 1 minute, and the game can be completed within 1
 
 ## Credits
 Julian Lara - Production Lead and Programmer  
-Xing Zhong- Programmer  
+Xing Zhong- Programmer  and Test Lead
 Eduardo Torres Cruz - Programmer  
 Elyzza Joyce Marquez - Artist and Narrative lead
