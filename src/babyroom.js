@@ -59,7 +59,7 @@ class BabyRoom extends GameScene {
             this.subrect.setVisible(true)
             this.subtext.setText('(Door creaks open)')
             this.subtext.setVisible(true)
-            this.gotoScene('outro')
+            this.gotoScene('outrocinematic')
         }
     }
 

@@ -56,7 +56,7 @@ class BathRoom extends GameScene {
             this.babycry.stop()
             this.creak.play()
             this.subtext.setText('(Door creaks open)')
-            this.gotoScene('outro')
+            this.gotoScene('outrocinematic')
         }
     }
 

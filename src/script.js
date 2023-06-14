@@ -217,6 +217,29 @@ class Intro_Cinematic extends Phaser.Scene{
     
 }
 
+class OutroCinematic extends Phaser.Scene {
+    constructor() {
+        super("outrocinematic");
+    }
+
+    preload() {
+        //this.load.path = '/assets/' // <- for local
+        this.load.path = '/Memoria/assets/' // <- for github
+        this.load.video('light_transition', 'Light Transition.mp4', true);
+    }
+    create() {
+        let light_transition = this.add.video(0, 0, 'light').setOrigin(0, 0).play(true);
+
+        light_transition.once('play', () => {
+            light_transition.setDisplaySize(this.game.config.width, this.game.config.height);
+        });
+
+        this.time.delayedCall(3000, () => {
+            this.scene.start('outro');
+        })
+    }
+}
+
 class Outro extends Phaser.Scene {
     constructor() {
         super("outro");

@@ -53,7 +53,7 @@ class Master extends GameScene {
             this.cry.stop()
             this.creak.play()
             this.subtext.setText('(Door creaks open)')
-            this.gotoScene('outro')
+            this.gotoScene('outrocinematic')
         }
     }
 
