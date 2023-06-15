@@ -144,8 +144,8 @@ class Master extends GameScene {
             .setVisible(false)
 
         // Light switch image
-        this.lightOn = this.add.image(this.w-6*this.s, this.h-9*this.s, 'lighton').setScale(0.15)
-        this.lightOff = this.add.image(this.w-4*this.s, this.h-9*this.s, 'lightoff').setScale(0.15)
+        this.lightOn = this.add.image(this.w-6*this.s, this.h-9*this.s, 'lighton').setScale(0.35)
+        this.lightOff = this.add.image(this.w-4*this.s, this.h-9*this.s, 'lightoff').setScale(0.35)
 
         // Light switch sound effect
         this.switchOn = this.sound.add('switchon').setVolume(0.25)

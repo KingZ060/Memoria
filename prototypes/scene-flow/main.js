@@ -151,11 +151,16 @@ class Credits extends Phaser.Scene {
 }
 
 const config = {
-    type: Phaser.AUTO,
-    width: 1000,
-    height: 800,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        
+        width: 1900,
+        height: 1000
+    },
     backgroundColor: '#000000',
     scene: [Title, Menu, Gameplay, Master, Credits],
 };
 
 let game = new Phaser.Game(config);
+
