@@ -217,30 +217,26 @@ class Intro extends Phaser.Scene {
     }
 }
 
-class Intro_Cinematic extends Phaser.Scene{
-    
-}
-
 class OutroCinematic extends Phaser.Scene {
     constructor() {
         super("outrocinematic");
     }
 
     preload() {
-        //this.load.path = '/assets/' // <- for local
+        // this.load.path = '/assets/' // <- for local
         this.load.path = '/Memoria/assets/' // <- for github
-        this.load.video('light_transition', 'Light Transition.mp4', true);
+        this.load.video('light_transition', 'Light Transition.mp4');
     }
     create() {
-        let light_transition = this.add.video(0, 0, 'light').setOrigin(0, 0).play(true);
+        let light_transition = this.add.video(0, 0, 'light_transition').setOrigin(0, 0).play();
 
         light_transition.once('play', () => {
             light_transition.setDisplaySize(this.game.config.width, this.game.config.height);
         });
 
-        this.time.delayedCall(3000, () => {
+        light_transition.once('complete', () => {
             this.scene.start('outro');
-        })
+        });
     }
 }
 
@@ -333,6 +329,6 @@ class Outro extends Phaser.Scene {
         // }
     },
     type: Phaser.AUTO,
-    scene: [Title, Settings, Warning, Tutorioal, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits, Outrocinematic],
+    scene: [Title, Settings, Warning, Tutorioal, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits, OutroCinematic],
     title: "Memoria",
 });
