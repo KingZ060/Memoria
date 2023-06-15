@@ -31,12 +31,12 @@ Core gameplay can be reached in 1 minute, and the game can be completed within 1
 ![Effects](https://drive.google.com/uc?export=view&id=1lGdJqOB774d2aqjnq9dJ69J3xhqj-RHs)\
 ![Codes](https://drive.google.com/uc?export=view&id=1EsrmEO4GYA3_IU23Gbuk3YBpyAo8W1EB)![Codes](https://drive.google.com/uc?export=view&id=1KEIJcHvLZNw-WYT5jLJYUOOZyqM0jXut)
 
-
 - Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  \
-![Codes](https://drive.google.com/uc?export=view&id=)
+![Codes](https://drive.google.com/uc?export=view&id=1g6e8Ok9WE8zsdHyX3uZEXjmfgtZa0jEy)
+
 - Procedural Graphics: Can be found throughout the outro of the game.\
-![Effects](https://drive.google.com/uc?export=view&id=)
-![Codes](https://drive.google.com/uc?export=view&id=)
+![Effects](https://drive.google.com/uc?export=view&id=1KYq1HZQNdPJAlZdv73cXHq0AghBa7V2D)
+![Codes](https://drive.google.com/uc?export=view&id=12JJ2Ticjsu-g8FFFpf8xv4I0JcaUThgd)
 
 ## Sources and References
 [Pixabay](https://pixabay.com/) - For some sounds  
