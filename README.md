@@ -28,8 +28,9 @@ Core gameplay can be reached in 1 minute, and the game can be completed within 1
   
 **Selectable Requirements:**  
 - Closed Captioning: Can be found on all screens throughout the game for the sound effects.  
-- Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  
-![Codes](https://drive.google.com/file/d/1RbbH2LsaVTp-gcUXr8erib7AoFFsObp9/view?usp=sharing)
+- Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  \
+![Effects]
+![Codes](https://drive.google.com/uc?export=view&id=1RbbH2LsaVTp-gcUXr8erib7AoFFsObp9)
 
 - Procedural Graphics: Can be found throughout the game.
 

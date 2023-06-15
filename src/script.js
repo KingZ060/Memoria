@@ -164,6 +164,7 @@ class Tutorioal extends GameScene {
         this.load.audio('creak', 'sounds/creak.mp3')
     }
     onEnter(){
+        this.playing = false;
         this.creak = this.sound.add('creak').setVolume(0.25)
         this.cursors = this.input.keyboard.createCursorKeys();
         this.player = new Player(this, 300, 500);
@@ -180,8 +181,11 @@ class Tutorioal extends GameScene {
             .setInteractive({useHandCursor: true})
             .on('pointerover', () => this.showMessage('Click me to go \ninto the game!\n'))
         this.interact = function(player, door){
-            this.sound.play('creak');
-            this.gotoScene('intro');
+            if (!this.playing) {
+                this.playing = true;
+                this.sound.play('creak');
+                this.gotoScene('intro');
+            }
         }
         this.physics.add.overlap(this.player, this.touch, this.interact, null, this)
     }
@@ -329,6 +333,6 @@ class Outro extends Phaser.Scene {
         // }
     },
     type: Phaser.AUTO,
-    scene: [Title, Settings, Warning, Tutorioal, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits],
+    scene: [Title, Settings, Warning, Tutorioal, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits, Outrocinematic],
     title: "Memoria",
 });
