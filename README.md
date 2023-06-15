@@ -28,8 +28,8 @@ Core gameplay can be reached in 1 minute, and the game can be completed within 1
   
 **Selectable Requirements:**  
 - Closed Captioning: Can be found on all screens throughout the game for the sound effects.\
-![Effects](https://drive.google.com/uc?export=view&id=1dixI75KW4pSWqG_lAG6LnmHg2l8GEeou)\
-![Codes](https://drive.google.com/uc?export=view&id=1Na1Wov2hEKWUmC3ws76KicLjqi--8xR4)![Codes](https://drive.google.com/uc?export=view&id=1EsrmEO4GYA3_IU23Gbuk3YBpyAo8W1EB)![Codes](https://drive.google.com/uc?export=view&id=1KEIJcHvLZNw-WYT5jLJYUOOZyqM0jXut)
+![Effects](https://drive.google.com/uc?export=view&id=1lGdJqOB774d2aqjnq9dJ69J3xhqj-RHs)\
+![Codes](https://drive.google.com/uc?export=view&id=1EsrmEO4GYA3_IU23Gbuk3YBpyAo8W1EB)![Codes](https://drive.google.com/uc?export=view&id=1KEIJcHvLZNw-WYT5jLJYUOOZyqM0jXut)
 
 
 - Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  \
