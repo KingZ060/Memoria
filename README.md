@@ -1,5 +1,6 @@
 # Memoria
-Final Project for CMPM 120 and ARTG 120 at UCSC
+Final Project for CMPM 120 and ARTG 120 at UCSC  
+Play the game [here](https://juicebox7.github.io/Memoria/index.html)
 
 ## Core Requirements
 **Prototypes:**  
@@ -26,9 +27,9 @@ The game has a persistent music toggle button.
 Core gameplay can be reached in 1 minute, and the game can be completed within 10 minutes.  
   
 **Selectable Requirements:**  
-- Closed Captioning  
-- Advanced Visual Assets  
-- Procedural Graphics
+- Closed Captioning: Can be found on all screens throughout the game for the sound effects.  
+- Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  
+- Procedural Graphics: Can be found throughout the game.
 
 ## Sources and References
 [Pixabay](https://pixabay.com/) - For some sounds  
@@ -36,6 +37,6 @@ Core gameplay can be reached in 1 minute, and the game can be completed within 1
 
 ## Credits
 Julian Lara - Production Lead and Programmer  
-Xing Zhong- Programmer  and Test Lead
+Xing Zhong- Programmer  and Test Lead  
 Eduardo Torres Cruz - Programmer  
 Elyzza Joyce Marquez - Artist and Narrative lead
