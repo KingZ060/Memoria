@@ -71,8 +71,8 @@ class BabyRoom extends GameScene {
         .setVisible(false)
         .setImmovable(true);
         
-        this.lightOn = this.add.image(this.w-6*this.s, this.h-9*this.s, 'lighton').setScale(0.35)
-        this.lightOff = this.add.image(this.w-4*this.s, this.h-9*this.s, 'lightoff').setScale(0.35)
+        this.lightOn = this.add.image(this.w-6*this.s, this.h-9*this.s, 'lighton').setScale(0.15)
+        this.lightOff = this.add.image(this.w-4*this.s, this.h-9*this.s, 'lightoff').setScale(0.15)
         
         this.switchOn = this.sound.add('switchon').setVolume(0.25)
         this.switchOff = this.sound.add('switchoff').setVolume(0.25)

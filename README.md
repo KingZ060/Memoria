@@ -27,12 +27,16 @@ The game has a persistent music toggle button.
 Core gameplay can be reached in 1 minute, and the game can be completed within 10 minutes.  
   
 **Selectable Requirements:**  
-- Closed Captioning: Can be found on all screens throughout the game for the sound effects.  
-- Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  \
-![Effects]
-![Codes](https://drive.google.com/uc?export=view&id=1RbbH2LsaVTp-gcUXr8erib7AoFFsObp9)
+- Closed Captioning: Can be found on all screens throughout the game for the sound effects.\
+![Effects](https://drive.google.com/uc?export=view&id=1dixI75KW4pSWqG_lAG6LnmHg2l8GEeou)\
+![Codes](https://drive.google.com/uc?export=view&id=1Na1Wov2hEKWUmC3ws76KicLjqi--8xR4)![Codes](https://drive.google.com/uc?export=view&id=1EsrmEO4GYA3_IU23Gbuk3YBpyAo8W1EB)![Codes](https://drive.google.com/uc?export=view&id=1KEIJcHvLZNw-WYT5jLJYUOOZyqM0jXut)
 
-- Procedural Graphics: Can be found throughout the game.
+
+- Advanced Visual Assets: Can be found upon completing the game, and acts as a transition to our outro scene.  \
+![Codes](https://drive.google.com/uc?export=view&id=)
+- Procedural Graphics: Can be found throughout the outro of the game.\
+![Effects](https://drive.google.com/uc?export=view&id=)
+![Codes](https://drive.google.com/uc?export=view&id=)
 
 ## Sources and References
 [Pixabay](https://pixabay.com/) - For some sounds  
