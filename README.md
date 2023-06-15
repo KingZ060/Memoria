@@ -36,7 +36,7 @@ Core gameplay can be reached in 1 minute, and the game can be completed within 1
 
 - Procedural Graphics: Can be found throughout the outro of the game.\
 ![Effects](https://drive.google.com/uc?export=view&id=1KYq1HZQNdPJAlZdv73cXHq0AghBa7V2D)
-![Codes](https://drive.google.com/uc?export=view&id=12JJ2Ticjsu-g8FFFpf8xv4I0JcaUThgd)
+![Codes](https://drive.google.com/uc?export=view&id=1HXsHOGEpw5SUrCqG-G8IcmcBs0e9lg9o)
 
 ## Sources and References
 [Pixabay](https://pixabay.com/) - For some sounds  
