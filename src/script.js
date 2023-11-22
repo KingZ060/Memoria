@@ -4,8 +4,8 @@ class Title extends Phaser.Scene {
     }
     
     preload() {
-        // this.load.path = '/assets/' // local
-        this.load.path = '/Memoria/assets/' // github
+        this.load.path = '/assets/' // local
+        // this.load.path = '/Memoria/assets/' // github
         this.load.image('title', 'Names/Title.png')
         this.load.image('start', 'Buttons/Start button.png')
         this.load.image('options', 'Buttons/Options button.png')
@@ -71,8 +71,8 @@ class Settings extends Phaser.Scene {
     }
     
     preload() {
-        // this.load.path = '/assets/' // local
-        this.load.path = '/Memoria/assets/' // github
+        this.load.path = '/assets/' // local
+        // this.load.path = '/Memoria/assets/' // github
         this.load.image('exit', 'Buttons/Exit button.png')
         this.load.audio('page', 'sounds/page.mp3')
     }
@@ -157,8 +157,8 @@ class Tutorioal extends GameScene {
         super('tutorioal')
     }
     preload() {
-        // this.load.path = '/assets/' // <- for local
-        this.load.path = '/Memoria/assets/' // <- for github
+        this.load.path = '/assets/' // <- for local
+        // this.load.path = '/Memoria/assets/' // <- for github
         this.load.image('player', 'Delilah.png')
         this.load.image('doorVert', 'Bathroom/Bathroom door.png')
         this.load.audio('creak', 'sounds/creak.mp3')
@@ -223,8 +223,8 @@ class OutroCinematic extends Phaser.Scene {
     }
 
     preload() {
-        // this.load.path = '/assets/' // <- for local
-        this.load.path = '/Memoria/assets/' // <- for github
+        this.load.path = '/assets/' // <- for local
+        // this.load.path = '/Memoria/assets/' // <- for github
         this.load.video('light_transition', 'Light Transition.mp4');
     }
     create() {
