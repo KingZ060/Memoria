@@ -1,0 +1,59 @@
+{
+  "living": {
+    "frame": {
+      "message": "A worn family picture. You and your family seem so happy.",
+      "dimensions": { "width": 300, "height": 20 },
+      "visible": false,
+      "pointOver": "A family portrait"
+    },
+    "tv": {
+      "message": "The TV seems old and broken. It won't turn on.",
+      "dimensions": { "width": 140, "height": 100 },
+      "visible": false,
+      "pointOver": "A TV"
+    },
+    "belt": {
+      "message": "A rolled up belt. For some reason it makes you shudder.",
+      "dimensions": { "width": 160, "height": 110 },
+      "visible": false,
+      "pointOver": "A belt"
+    },
+    "bottle": {
+      "message": "A broken beer bottle. It looks like it may have been used as a weapon.",
+      "dimensions": { "width": 150, "height": 70 },
+      "visible": false,
+      "pointOver": "A bottle"
+    },
+    "blood": {
+      "message": "A pool of blood. The blood seems fresh.",
+      "dimensions": { "width": 90, "height": 90 },
+      "visible": false,
+      "pointOver": "A bloodstain"
+    },
+    "masterbedroom": {
+      "dimensions": { "width": 10, "height": 100 },
+      "visible": false,
+      "pointOver": "Master bedroom door"
+    },
+    "bathroom": {
+      "dimensions": { "width": 100, "height": 10 },
+      "visible": false,
+      "pointOver": "Bathroom door"
+    },
+    "babyroom": {
+      "dimensions": { "width": 100, "height": 10 },
+      "visible": false,
+      "pointOver":"Baby Brother's door"
+    },
+    "bedroom": {
+      "dimensions": { "width": 10, "height": 100 },
+      "visible": false,
+      "pointOver":"Your bedroom door"
+    },
+    "exit": {
+      "dimensions": { "width": 200, "height": 10 },
+      "visible": false,
+      "pointOver":"Exit"
+    }
+  }
+}

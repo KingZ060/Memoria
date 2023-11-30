@@ -329,6 +329,6 @@ class Outro extends Phaser.Scene {
         // }
     },
     type: Phaser.AUTO,
-    scene: [Title, Settings, Warning, Tutorioal, Intro, LivingRoom, BathRoom, BabyRoom, Master, Outro, Credits, OutroCinematic],
+    scene: [LivingRoom,Title, Settings, Warning, Tutorioal, Intro,  BathRoom, BabyRoom, Master, Outro, Credits, OutroCinematic],
     title: "Memoria",
 });
